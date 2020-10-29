@@ -10,6 +10,10 @@ router.get("/", (req, res) => {
   res.status(200).json({ api: "up" });
 });
 
+router.get('/tell-all', () => {
+  res.json({secret: process.env.SECRET_THING })
+})
+
 router.get("/shouts", (req, res, next) => {
   Shouts.find()
     .then(shouts => {
